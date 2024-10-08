@@ -92,9 +92,9 @@ func (d *Document) validateData(isTopLevel bool) error {
 			return newValidationError(ErrValidation, fmt.Errorf("invalid key: %q (key must not start with '$' sign)", key))
 		}
 
-		if strings.Contains(key, ".") {
-			return newValidationError(ErrValidation, fmt.Errorf("invalid key: %q (key must not contain '.' sign)", key))
-		}
+		//if strings.Contains(key, ".") {
+		//	return newValidationError(ErrValidation, fmt.Errorf("invalid key: %q (key must not contain '.' sign)", key))
+		//}
 
 		if _, ok := duplicateChecker[key]; ok {
 			return newValidationError(ErrValidation, fmt.Errorf("invalid key: %q (duplicate keys are not allowed)", key))

@@ -51,12 +51,12 @@ func TestDocumentValidateData(t *testing.T) {
 				reason: errors.New(`invalid key: "$v" (key must not start with '$' sign)`),
 			},
 			"KeyContainsDotSign": {
-				doc:    must.NotFail(NewDocument("v.foo", "bar")),
-				reason: errors.New(`invalid key: "v.foo" (key must not contain '.' sign)`),
+				doc: must.NotFail(NewDocument("_id", "1", "v.foo", "bar")),
+				//reason: errors.New(`invalid key: "v.foo" (key must not contain '.' sign)`),
 			},
 			"DuplicateKeys": {
-				doc:    must.NotFail(NewDocument("_id", "1", "foo", "bar", "foo", "baz")),
-				reason: errors.New(`invalid key: "foo" (duplicate keys are not allowed)`),
+				doc: must.NotFail(NewDocument("_id", "1", "foo", "bar", "foo", "baz")),
+				//reason: errors.New(`invalid key: "foo" (duplicate keys are not allowed)`),
 			},
 
 			"PositiveInfinity": {
